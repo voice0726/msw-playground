@@ -1,4 +1,4 @@
-'use client';
+import type { ReactNode } from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -11,7 +11,7 @@ const MSWDevTools = dynamic(() =>
 );
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 if (API_MOCKING) {

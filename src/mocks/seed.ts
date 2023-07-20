@@ -1,11 +1,9 @@
 import { db } from '@/mocks/db';
+import { testData } from '@/mocks/test-data';
 
 export const seed = () => {
-  db.todo.create({
-    id: '1',
-    title: 'Buy milk',
-    done: false,
-    createdAt: Date.now(),
-    updatedAt: Date.now(),
-  });
+  if (db.todo.count() === 0) {
+    console.log('seeding db');
+    testData.todos.forEach((todo) => db.todo.create(todo));
+  }
 };
